@@ -9,7 +9,7 @@ void swap(int *a, int *b) {
 
 void heapify(int arr[], size_t n, size_t i) {
     if(!arr) return;
-    if(n <= 0 || i <= 0) return;
+    if(n <= 1 || i <= 1) return;
 
     size_t largest = i;
     size_t left = 2 * i + 1;
@@ -30,7 +30,7 @@ void heapify(int arr[], size_t n, size_t i) {
 
 void heap_sort(int arr[], size_t n) {
     if(!arr) return;
-    if(n <= 0) return;
+    if(n <= 1) return;
 
     for(size_t i = n / 2 - 1; i >= 0; i--) {
         heapify(arr, n, i);

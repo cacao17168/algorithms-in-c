@@ -2,7 +2,7 @@
 
 void shell_sort(int arr[], size_t n) {
     if(!arr) return;
-    if(n <= 0) return;
+    if(n <= 1) return;
 
     for(size_t gap = n / 2; gap > 0; gap /= 2) {
         for(size_t i = gap; i < n; i++) {

@@ -2,7 +2,7 @@
 
 void insertion_sort(int arr[], size_t n) {
     if(!arr) return;
-    if(n <= 0) return;
+    if(n <= 1) return;
 
     for(size_t i = 0; i < n; i++) {
         int key = arr[i];

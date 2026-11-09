@@ -9,7 +9,7 @@ void swap(int *a, int *b) {
 
 size_t partition(int arr[], size_t low, size_t high) {
     if(!arr) return 0;
-    if(low <= 0 || high <= 0) return 0;
+    if(low <= 1 || high <= 1) return 0;
 
     size_t pivot = arr[high];
     size_t i = (low - 1);
@@ -26,7 +26,7 @@ size_t partition(int arr[], size_t low, size_t high) {
 
 void quick_sort(int arr[], size_t low, size_t high) {
     if(!arr) return;
-    if(low <= 0 || high <= 0) return;
+    if(low <= 1 || high <= 1) return;
 
     if(low < high) {
         size_t pi = partition(arr, low, high);

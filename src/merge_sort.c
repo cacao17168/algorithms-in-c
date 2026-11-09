@@ -3,7 +3,7 @@
 
 void merge(int arr[], size_t left, size_t mid, size_t right) {
     if(!arr) return;
-    if(left <= 0 || mid <= 0 || right <= 0) return;
+    if(left <= 1 || mid <= 1 || right <= 1) return;
 
     size_t i, j, k;
     size_t n1 = mid - left + 1;
@@ -50,7 +50,7 @@ void merge(int arr[], size_t left, size_t mid, size_t right) {
 
 void merge_sort(int arr[], size_t left, size_t right) {
     if(!arr) return;
-    if(left <= 0 || right <= 0) return;
+    if(left <= 1 || right <= 1) return;
 
     if(left < right) {
         size_t mid = left + (right - left) / 2;

@@ -2,7 +2,7 @@
 
 void selection_sort(int arr[], size_t n) {
     if(!arr) return;
-    if(n <= 0) return;
+    if(n <= 1) return;
 
     for(size_t i = 0; i < n - 1; i++) {
         size_t min_idx = i;
