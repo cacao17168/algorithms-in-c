@@ -3,14 +3,18 @@
 
 void merge(int arr[], size_t left, size_t mid, size_t right) {
     if(!arr) return;
-    if(left <= 1 || mid <= 1 || right <= 1) return;
 
     size_t i, j, k;
     size_t n1 = mid - left + 1;
-    size_t n2 = mid - right;
+    size_t n2 = right - mid;
 
     int *L = (int *)malloc(n1 * sizeof(int));
     int *R = (int *)malloc(n2 * sizeof(int));
+    if(!L || !R) {
+        free(L);
+        free(R);
+        return;
+    }
 
     for(i = 0; i < n1; i++) {
         L[i] = arr[left + i];
@@ -50,7 +54,6 @@ void merge(int arr[], size_t left, size_t mid, size_t right) {
 
 void merge_sort(int arr[], size_t left, size_t right) {
     if(!arr) return;
-    if(left <= 1 || right <= 1) return;
 
     if(left < right) {
         size_t mid = left + (right - left) / 2;
