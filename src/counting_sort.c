@@ -3,7 +3,7 @@
 
 void counting_sort(int arr[], size_t n) {
     if(!arr) return;
-    if(n <= 1) return;
+    if(n <= 0) return;
 
     int max = arr[0];
     for(size_t i = 1; i < n; i++) {
@@ -11,8 +11,9 @@ void counting_sort(int arr[], size_t n) {
             max = arr[i];
         }
     }
+    if(max < 0) return;
 
-    int *count = (int *)calloc(max + 1, sizeof(int));
+    int *count = calloc((size_t)max + 1, sizeof(int));
     if(!count) return;
 
     for(size_t i = 0; i < n; i++) {
@@ -23,13 +24,13 @@ void counting_sort(int arr[], size_t n) {
         count[i] += count[i - 1];
     }
 
-    int *output = (int *)malloc(n * sizeof(int));
+    int *output = malloc(n * sizeof(int));
     if(!output) {
         free(count);
         return;
     }
 
-    for(size_t i = n - 1; i <= 0; i--) {
+    for(size_t i = n; i > 0; i--) {
         output[count[arr[i]] - 1] = arr[i];
         count[arr[i]]--;
     }
