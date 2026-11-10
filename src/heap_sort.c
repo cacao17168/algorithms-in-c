@@ -32,11 +32,11 @@ void heap_sort(int arr[], size_t n) {
     if(n <= 1) return;
 
     for(size_t i = n / 2; i > 0; i--) {
-        heapify(arr, n, i);
+        heapify(arr, n, i - 1);
     }
 
     for(size_t i = n; i > 1; i--) {
-        heap_swap(&arr[0], &arr[i]);
-        heapify(arr, i, 0);
+        heap_swap(&arr[0], &arr[i - 1]);
+        heapify(arr, i - 1, 0);
     }
 }
