@@ -21,4 +21,6 @@ void selection_sort(int arr[], size_t n);
 
 void shell_sort(int arr[], size_t n);
 
+void radix_sort(int arr[], size_t n);
+
 #endif
