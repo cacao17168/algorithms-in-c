@@ -26,8 +26,9 @@ void count_sort(int arr[], size_t n, size_t exp) {
     }
 
     for(size_t i = n; i > 0; i--) {
-        int d = (arr[i] / exp) % 10;
-        output[count[d] - 1] = arr[i];
+        int val = arr[i - 1];
+        int d = (val / exp) % 10;
+        output[count[d] - 1] = val;
         count[d]--;
     }
 

@@ -15,8 +15,8 @@ size_t partition(int arr[], size_t low, size_t high) {
 
     for(size_t j = low; j < high; j++) {
         if(arr[j] <= pivot) {
-            i++;
             quick_swap(&arr[i], &arr[j]);
+            i++;
         }
     }
     quick_swap(&arr[i], &arr[high]);
