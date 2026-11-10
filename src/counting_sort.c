@@ -31,8 +31,9 @@ void counting_sort(int arr[], size_t n) {
     }
 
     for(size_t i = n; i > 0; i--) {
-        output[count[arr[i]] - 1] = arr[i];
-        count[arr[i]]--;
+        int val = arr[i - 1];
+        output[count[val] - 1] = val;
+        count[val]--;
     }
 
     for(size_t i = 0; i < n; i++) {
