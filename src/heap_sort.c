@@ -9,16 +9,15 @@ void heap_swap(int *a, int *b) {
 
 void heapify(int arr[], size_t n, size_t i) {
     if(!arr) return;
-    if(n <= 1 || i <= 1) return;
 
     size_t largest = i;
     size_t left = 2 * i + 1;
     size_t right = 2 * i + 2;
 
-    if(left < n && arr[left] > largest) {
+    if(left < n && arr[left] > arr[largest]) {
         largest = left;
     }
-    if(right < n && arr[right] > largest) {
+    if(right < n && arr[right] > arr[largest]) {
         largest = right;
     }
 
@@ -32,11 +31,11 @@ void heap_sort(int arr[], size_t n) {
     if(!arr) return;
     if(n <= 1) return;
 
-    for(size_t i = n / 2 - 1; i >= 0; i--) {
+    for(size_t i = n / 2; i > 0; i--) {
         heapify(arr, n, i);
     }
 
-    for(size_t i = n; i > 0; i--) {
+    for(size_t i = n; i > 1; i--) {
         heap_swap(&arr[0], &arr[i]);
         heapify(arr, i, 0);
     }
