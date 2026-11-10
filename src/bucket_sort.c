@@ -33,11 +33,20 @@ void bucket_sort(int arr[], size_t n) {
     if(!arr) return;
     if(n <= 1) return;
 
-    struct node **buckets = (struct node **)calloc(n, sizeof(struct node *));
+    int min = arr[0], max = arr[0];
+    for (size_t i = 1; i < n; i++) {
+        if (arr[i] < min) min = arr[i];
+        if (arr[i] > max) max = arr[i];
+    }
 
+    struct node **buckets = (struct node **)calloc(n, sizeof(struct node *));
+    if(!buckets) return;
+
+    double range = (double)max - (double)min + 1.0;
     for(size_t i = 0; i < n; i++) {
-        size_t bi = n * (size_t)arr[i];
+        size_t bi = (size_t)(((double)arr[i] - (double)min) / range * (double)n);
         struct node *new_node = (struct node *)malloc(sizeof(struct node));
+        if(!new_node) continue;
         new_node->val = arr[i];
         new_node->next = buckets[bi];
         buckets[bi] = new_node;
