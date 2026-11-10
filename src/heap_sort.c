@@ -1,6 +1,6 @@
 #include <stddef.h>
 
-void swap(int *a, int *b) {
+void heap_swap(int *a, int *b) {
     if(!a || !b) return;
     int t = *a;
     *a = *b;
@@ -23,7 +23,7 @@ void heapify(int arr[], size_t n, size_t i) {
     }
 
     if(largest != i) {
-        swap(&arr[i], &arr[largest]);
+        heap_swap(&arr[i], &arr[largest]);
         heapify(arr, n, largest);
     }
 }
@@ -37,7 +37,7 @@ void heap_sort(int arr[], size_t n) {
     }
 
     for(size_t i = n; i > 0; i--) {
-        swap(&arr[0], &arr[i]);
+        heap_swap(&arr[0], &arr[i]);
         heapify(arr, i, 0);
     }
 }

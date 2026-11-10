@@ -1,6 +1,6 @@
 #include <stddef.h>
 
-void swap(int *a, int *b) {
+void quick_swap(int *a, int *b) {
     if(!a || !b) return;
     int t = *a;
     *a = *b;
@@ -17,10 +17,10 @@ size_t partition(int arr[], size_t low, size_t high) {
     for(size_t j = low; j <= high - 1; j++) {
         if(arr[j] <= pivot) {
             i++;
-            swap(&arr[i], &arr[j]);
+            quick_swap(&arr[i], &arr[j]);
         }
     }
-    swap(&arr[i + 1], &arr[high]);
+    quick_swap(&arr[i + 1], &arr[high]);
     return (i + 1);
 }
 
