@@ -9,29 +9,26 @@ void quick_swap(int *a, int *b) {
 
 size_t partition(int arr[], size_t low, size_t high) {
     if(!arr) return 0;
-    if(low <= 1 || high <= 1) return 0;
 
-    size_t pivot = arr[high];
-    size_t i = (low - 1);
+    int pivot = arr[high];
+    size_t i = low;
 
-    for(size_t j = low; j <= high - 1; j++) {
+    for(size_t j = low; j < high; j++) {
         if(arr[j] <= pivot) {
             i++;
             quick_swap(&arr[i], &arr[j]);
         }
     }
-    quick_swap(&arr[i + 1], &arr[high]);
-    return (i + 1);
+    quick_swap(&arr[i], &arr[high]);
+    return i;
 }
 
 void quick_sort(int arr[], size_t low, size_t high) {
     if(!arr) return;
-    if(low <= 1 || high <= 1) return;
+    if(low >= high) return;
 
-    if(low < high) {
-        size_t pi = partition(arr, low, high);
+    size_t pi = partition(arr, low, high);
 
-        quick_sort(arr, low, pi - 1);
-        quick_sort(arr, pi + 1, high);
-    }
+    if(pi > low) quick_sort(arr, low, pi - 1);
+    if(pi < high) quick_sort(arr, pi + 1, high);
 }
