@@ -6,7 +6,7 @@ struct node {
     struct node *next;
 };
 
-struct node *insertion_sort(struct node *head) {
+struct node *bucket_insertion_sort(struct node *head) {
     if(!head) return NULL;
 
     struct node *sorted = NULL;
@@ -45,7 +45,7 @@ void bucket_sort(int arr[], size_t n) {
 
     size_t index = 0;
     for(size_t i = 0; i < n; i++) {
-        buckets[i] = insertion_sort(buckets[i]);
+        buckets[i] = bucket_insertion_sort(buckets[i]);
         struct node *cur = buckets[i];
         while(cur != NULL) {
             arr[index++] = cur->val;
